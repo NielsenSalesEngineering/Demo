@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  PlayerView.h
 //  Demo
 //
 //  Created by Wesley Kincaid on 5/26/15.
@@ -9,11 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-@class PlayerView;
-@interface ViewController : UIViewController
+@interface PlayerView : UIView
 
 @property (nonatomic) AVPlayer *player;
-@property (nonatomic) AVPlayerItem *playerItem;
-@property (nonatomic, weak) IBOutlet PlayerView *playerView;
-@end
 
+@end

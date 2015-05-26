@@ -14,6 +14,7 @@
 		2B1828ED1B14DA0200DC1048 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B1828EC1B14DA0200DC1048 /* Images.xcassets */; };
 		2B1828F01B14DA0200DC1048 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B1828EE1B14DA0200DC1048 /* LaunchScreen.xib */; };
 		2B1828FC1B14DA0200DC1048 /* DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1828FB1B14DA0200DC1048 /* DemoTests.m */; };
+		2B1829071B14DAFC00DC1048 /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1829061B14DAFC00DC1048 /* PlayerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		2B1828F51B14DA0200DC1048 /* DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B1828FA1B14DA0200DC1048 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B1828FB1B14DA0200DC1048 /* DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoTests.m; sourceTree = "<group>"; };
+		2B1829051B14DAFC00DC1048 /* PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerView.h; sourceTree = "<group>"; };
+		2B1829061B14DAFC00DC1048 /* PlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,8 @@
 			children = (
 				2B1828E31B14DA0200DC1048 /* AppDelegate.h */,
 				2B1828E41B14DA0200DC1048 /* AppDelegate.m */,
+				2B1829051B14DAFC00DC1048 /* PlayerView.h */,
+				2B1829061B14DAFC00DC1048 /* PlayerView.m */,
 				2B1828E61B14DA0200DC1048 /* ViewController.h */,
 				2B1828E71B14DA0200DC1048 /* ViewController.m */,
 				2B1828E91B14DA0200DC1048 /* Main.storyboard */,
@@ -222,6 +227,7 @@
 				2B1828E81B14DA0200DC1048 /* ViewController.m in Sources */,
 				2B1828E51B14DA0200DC1048 /* AppDelegate.m in Sources */,
 				2B1828E21B14DA0200DC1048 /* main.m in Sources */,
+				2B1829071B14DAFC00DC1048 /* PlayerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
