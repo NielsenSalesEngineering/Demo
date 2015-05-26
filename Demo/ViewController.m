@@ -17,10 +17,8 @@
 @implementation ViewController
 @synthesize player, playerView, playerItem;
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
     
     NSURL *url = [NSURL URLWithString:@"http://www.nielseninternet.com/id3sdk/CC-N2-FD/prog_index.m3u8"];
     player = [AVPlayer playerWithURL:url];
@@ -29,10 +27,8 @@
     [player play];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
