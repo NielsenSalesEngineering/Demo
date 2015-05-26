@@ -22,8 +22,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    NSURL *content_with_captions = [NSURL URLWithString:@"http://content.uplynk.com/209da4fef4b442f6b8a100d71a9f6a9a.m3u8"];
-    player = [AVPlayer playerWithURL:content_with_captions];
+    NSURL *url = [NSURL URLWithString:@"http://www.nielseninternet.com/id3sdk/CC-N2-FD/prog_index.m3u8"];
+    player = [AVPlayer playerWithURL:url];
     
     [self.playerView setPlayer:player];
     [player play];
