@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSURL *url = [NSURL URLWithString:@"http://www.nielseninternet.com/id3sdk/CC-N2-FD/prog_index.m3u8"];
+    NSURL *url = [NSURL URLWithString:@"http://nielsense-assets.s3.amazonaws.com/id3/001/prog_index.m3u8"];
     player = [AVPlayer playerWithURL:url];
     
     [self.playerView setPlayer:player];
