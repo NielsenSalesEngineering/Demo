@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ID3VideoViewController.h
 //  Demo
 //
 //  Created by Wesley Kincaid on 5/26/15.
@@ -10,7 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 @class PlayerView;
-@interface ViewController : UIViewController
+@interface ID3VideoViewController : UIViewController
 
 @property (nonatomic) AVPlayer *player;
 @property (nonatomic) AVPlayerItem *playerItem;

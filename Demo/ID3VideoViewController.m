@@ -1,5 +1,5 @@
 //
-//  ViewController.m
+//  ID3VideoViewController.m
 //  Demo
 //
 //  Created by Wesley Kincaid on 5/26/15.
@@ -7,14 +7,14 @@
 //
 
 #import <CoreMedia/CoreMedia.h>
-#import "ViewController.h"
+#import "ID3VideoViewController.h"
 #import "PlayerView.h"
 
-@interface ViewController ()
+@interface ID3VideoViewController ()
 
 @end
 
-@implementation ViewController
+@implementation ID3VideoViewController
 @synthesize player, playerView, playerItem;
 
 - (void)viewDidLoad {
