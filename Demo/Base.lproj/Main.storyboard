@@ -53,10 +53,10 @@
             </objects>
             <point key="canvasLocation" x="-145" y="-330"/>
         </scene>
-        <!--Item A-->
+        <!--ID3 Audio-->
         <scene sceneID="1Ej-mH-YiJ">
             <objects>
-                <viewController id="JdR-sG-zRF" userLabel="Item A" sceneMemberID="viewController">
+                <viewController id="JdR-sG-zRF" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cfd-Gf-JiQ"/>
                         <viewControllerLayoutGuide type="bottom" id="FOU-24-Qbl"/>
@@ -66,7 +66,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="ID3 Audio" id="oZi-gO-gSw" userLabel="Item A"/>
+                    <tabBarItem key="tabBarItem" title="ID3 Audio" id="oZi-gO-gSw"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KL4-pB-t9U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
