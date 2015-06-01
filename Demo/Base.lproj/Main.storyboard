@@ -56,7 +56,7 @@
         <!--ID3 Audio-->
         <scene sceneID="1Ej-mH-YiJ">
             <objects>
-                <viewController id="JdR-sG-zRF" sceneMemberID="viewController">
+                <viewController id="JdR-sG-zRF" customClass="ID3AudioViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cfd-Gf-JiQ"/>
                         <viewControllerLayoutGuide type="bottom" id="FOU-24-Qbl"/>
@@ -75,7 +75,7 @@
         <!--CMS Video-->
         <scene sceneID="CpJ-Nn-hIT">
             <objects>
-                <viewController id="BZ2-ie-QYg" sceneMemberID="viewController">
+                <viewController id="BZ2-ie-QYg" customClass="CMSVideoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jS5-BL-cn8"/>
                         <viewControllerLayoutGuide type="bottom" id="Ag6-rb-aqT"/>
@@ -94,7 +94,7 @@
         <!--CMS Audio-->
         <scene sceneID="mwx-TG-e3b">
             <objects>
-                <viewController id="N3h-pH-pRZ" sceneMemberID="viewController">
+                <viewController id="N3h-pH-pRZ" customClass="CMSAudioViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="d5l-JK-uQU"/>
                         <viewControllerLayoutGuide type="bottom" id="KIB-Xi-GF5"/>

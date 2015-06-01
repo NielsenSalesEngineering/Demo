@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B04A7551B1CB088007B34F6 /* CMSVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B04A7541B1CB088007B34F6 /* CMSVideoViewController.m */; };
+		2B04A7581B1CB0BB007B34F6 /* ID3AudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B04A7571B1CB0BB007B34F6 /* ID3AudioViewController.m */; };
+		2B04A75B1B1CB0CC007B34F6 /* CMSAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B04A75A1B1CB0CC007B34F6 /* CMSAudioViewController.m */; };
 		2B1828E21B14DA0200DC1048 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1828E11B14DA0200DC1048 /* main.m */; };
 		2B1828E51B14DA0200DC1048 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1828E41B14DA0200DC1048 /* AppDelegate.m */; };
 		2B1828E81B14DA0200DC1048 /* ID3VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1828E71B14DA0200DC1048 /* ID3VideoViewController.m */; };
@@ -28,6 +31,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B04A7531B1CB088007B34F6 /* CMSVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSVideoViewController.h; sourceTree = "<group>"; };
+		2B04A7541B1CB088007B34F6 /* CMSVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSVideoViewController.m; sourceTree = "<group>"; };
+		2B04A7561B1CB0BB007B34F6 /* ID3AudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ID3AudioViewController.h; sourceTree = "<group>"; };
+		2B04A7571B1CB0BB007B34F6 /* ID3AudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ID3AudioViewController.m; sourceTree = "<group>"; };
+		2B04A7591B1CB0CC007B34F6 /* CMSAudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSAudioViewController.h; sourceTree = "<group>"; };
+		2B04A75A1B1CB0CC007B34F6 /* CMSAudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSAudioViewController.m; sourceTree = "<group>"; };
 		2B1828DC1B14DA0200DC1048 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B1828E01B14DA0200DC1048 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B1828E11B14DA0200DC1048 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -90,6 +99,12 @@
 				2B1829061B14DAFC00DC1048 /* PlayerView.m */,
 				2B1828E61B14DA0200DC1048 /* ID3VideoViewController.h */,
 				2B1828E71B14DA0200DC1048 /* ID3VideoViewController.m */,
+				2B04A7531B1CB088007B34F6 /* CMSVideoViewController.h */,
+				2B04A7541B1CB088007B34F6 /* CMSVideoViewController.m */,
+				2B04A7561B1CB0BB007B34F6 /* ID3AudioViewController.h */,
+				2B04A7571B1CB0BB007B34F6 /* ID3AudioViewController.m */,
+				2B04A7591B1CB0CC007B34F6 /* CMSAudioViewController.h */,
+				2B04A75A1B1CB0CC007B34F6 /* CMSAudioViewController.m */,
 				2B1828E91B14DA0200DC1048 /* Main.storyboard */,
 				2B1828EC1B14DA0200DC1048 /* Images.xcassets */,
 				2B1828EE1B14DA0200DC1048 /* LaunchScreen.xib */,
@@ -225,7 +240,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B04A75B1B1CB0CC007B34F6 /* CMSAudioViewController.m in Sources */,
+				2B04A7551B1CB088007B34F6 /* CMSVideoViewController.m in Sources */,
 				2B1828E81B14DA0200DC1048 /* ID3VideoViewController.m in Sources */,
+				2B04A7581B1CB0BB007B34F6 /* ID3AudioViewController.m in Sources */,
 				2B1828E51B14DA0200DC1048 /* AppDelegate.m in Sources */,
 				2B1828E21B14DA0200DC1048 /* main.m in Sources */,
 				2B1829071B14DAFC00DC1048 /* PlayerView.m in Sources */,

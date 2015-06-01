@@ -18,6 +18,7 @@
 @synthesize player, playerView, playerItem;
 
 - (void)viewDidLoad {
+    NSLog(@"IDVideoViewController loaded.");
     [super viewDidLoad];
     
     NSURL *url = [NSURL URLWithString:@"http://nielsense-assets.s3.amazonaws.com/id3/001/prog_index.m3u8"];
