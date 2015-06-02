@@ -48,7 +48,6 @@
 		2B04A7591B1CB0CC007B34F6 /* CMSAudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSAudioViewController.h; sourceTree = "<group>"; };
 		2B04A75A1B1CB0CC007B34F6 /* CMSAudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSAudioViewController.m; sourceTree = "<group>"; };
 		2B04A75E1B1CE417007B34F6 /* NielsenAppApi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NielsenAppApi.framework; path = "../NielsenAppSDK_4.0.0/Nielsen-iOS-App-SDK/Nielsen-iOS-App-SDK/NielsenAppApi.framework"; sourceTree = "<group>"; };
-		2B04A7601B1E4519007B34F6 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		2B04A7611B1E4519007B34F6 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		2B04A7641B1E4581007B34F6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2B04A7661B1E45E5007B34F6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -114,7 +113,6 @@
 				2B04A7681B1E45EF007B34F6 /* Foundation.framework */,
 				2B04A7661B1E45E5007B34F6 /* UIKit.framework */,
 				2B04A7641B1E4581007B34F6 /* CoreLocation.framework */,
-				2B04A7601B1E4519007B34F6 /* libsqlite3.0.dylib */,
 				2B04A7611B1E4519007B34F6 /* libsqlite3.dylib */,
 				2B04A75E1B1CE417007B34F6 /* NielsenAppApi.framework */,
 				2B1828DE1B14DA0200DC1048 /* Demo */,
