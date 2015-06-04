@@ -16,8 +16,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="nCS-Id-IBp"/>
-                        <segue destination="BZ2-ie-QYg" kind="relationship" relationship="viewControllers" id="3NY-1y-sNg"/>
                         <segue destination="JdR-sG-zRF" kind="relationship" relationship="viewControllers" id="yKh-BB-VcU"/>
+                        <segue destination="BZ2-ie-QYg" kind="relationship" relationship="viewControllers" id="3NY-1y-sNg"/>
                         <segue destination="N3h-pH-pRZ" kind="relationship" relationship="viewControllers" id="5ZQ-EH-Gp9"/>
                     </connections>
                 </tabBarController>
@@ -44,7 +44,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="ID3 Video" id="oLC-Hz-y2S" userLabel="ID3 Video"/>
+                    <tabBarItem key="tabBarItem" title="ID3 Video" image="Television" id="oLC-Hz-y2S" userLabel="ID3 Video"/>
                     <connections>
                         <outlet property="playerView" destination="Y7q-I3-DFx" id="xn8-B1-Tdk"/>
                     </connections>
@@ -66,7 +66,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="ID3 Audio" id="oZi-gO-gSw"/>
+                    <tabBarItem key="tabBarItem" title="ID3 Audio" image="Speaker" id="oZi-gO-gSw"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KL4-pB-t9U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -91,7 +91,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="CMS Video" id="ubH-rS-GC6"/>
+                    <tabBarItem key="tabBarItem" title="CMS Video" image="Television" id="ubH-rS-GC6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="evd-Ez-9l2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -110,11 +110,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="CMS Audio" id="ZGT-12-Su7"/>
+                    <tabBarItem key="tabBarItem" title="CMS Audio" image="Speaker" id="ZGT-12-Su7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OsI-ri-RGT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-145" y="1028"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Speaker" width="20" height="28"/>
+        <image name="Television" width="28" height="18"/>
+    </resources>
 </document>
