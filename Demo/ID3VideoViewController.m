@@ -25,7 +25,7 @@
     // Configure the Nielsen App SDK
     // Config must be translated to JSON
     NSDictionary *nielsenConfig = @{
-                                    @"appid": @"TOKFGHT7382-F4A9-4ERG1-9C00-7XXXXXC6",
+                                    @"appid": @"T6DABF79D-CE15-4A47-A201-4E7DFE0F7EF0",
                                     @"appversion": @"1.0",
                                     @"appname": @"SDK Demo",
                                     @"sf-code": @"cert"
