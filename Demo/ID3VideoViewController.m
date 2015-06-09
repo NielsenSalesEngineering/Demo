@@ -23,16 +23,40 @@
     [super viewDidLoad];
     
     // Configure the Nielsen App SDK
-    // Config must be translated to JSON
     NSDictionary *nielsenConfig = @{
                                     @"appid": @"T6DABF79D-CE15-4A47-A201-4E7DFE0F7EF0",
                                     @"appversion": @"1.0",
                                     @"appname": @"SDK Demo",
-                                    @"sf-code": @"cert"
+                                    @"sfcode": @"cert"
                                     };
     NSData *jsonDataNielsenConfig = [NSJSONSerialization dataWithJSONObject:nielsenConfig options:0 error:nil];
     NSString *jsonStringNielsenConfig = [[NSString alloc] initWithBytes:[jsonDataNielsenConfig bytes] length:[jsonDataNielsenConfig length] encoding:NSUTF8StringEncoding];
     NielsenAppApi *nielsenMeter = [[NielsenAppApi alloc] initWithAppInfo:jsonStringNielsenConfig delegate:self];
+    
+    // Configure the player
+    NSDictionary *playerInfoDict = @{
+                                 @"channelName": @"Video Demo",
+                                 @"adModel": @"2",
+                                 @"dataSrc": @"id3"
+                                 };
+    NSData *playerInfoData = [NSJSONSerialization dataWithJSONObject:playerInfoDict options:0 error:nil];
+    NSString *playerInfo = [[NSString alloc] initWithBytes:[playerInfoData bytes] length:[playerInfoData length] encoding:NSUTF8StringEncoding];
+    [nielsenMeter play:playerInfo];
+    
+    // Configure the asset
+    NSDictionary *assetInfoDict = @{
+                                @"type": @"content",
+                                @"assetid": @"assetid",
+                                @"tv": @"true",
+                                @"program":@"MyProgram",
+                                @"title": @"MyEpisodeTitle",
+                                @"category": @"testcat",
+                                @"adModel": @"2",
+                                @"dataSrc": @"id3"
+                                };
+    NSData *assetInfoData = [NSJSONSerialization dataWithJSONObject:assetInfoDict options:0 error:nil];
+    NSString *assetInfo = [[NSString alloc] initWithBytes:[assetInfoData bytes] length:[assetInfoData length] encoding:NSUTF8StringEncoding];
+    [nielsenMeter loadMetadata:assetInfo];
     
     NSURL *url = [NSURL URLWithString:@"http://nielsense-assets.s3.amazonaws.com/id3/001/prog_index.m3u8"];
     player = [AVPlayer playerWithURL:url];
@@ -45,17 +69,15 @@
 # pragma mark Nielsen App API Delegates
 # pragma mark - 
 
-- (void)nielsenAppApi:(NielsenAppApi *)appApi eventOccurred:(NSDictionary *)event
-{
+- (void)nielsenAppApi:(NielsenAppApi *)appApi eventOccurred:(NSDictionary *)event {
     NSLog(@"Sample player is Notified by a Event : %@", event);
 }
 
-- (void)nielsenAppApi:(NielsenAppApi *)appApi errorOccurred:(NSDictionary *)error
-{
+- (void)nielsenAppApi:(NielsenAppApi *)appApi errorOccurred:(NSDictionary *)error {
     NSLog(@"Sample player is Notified by an Error : %@", error);
 }
 
--(void)notifyInActive:(NSNotification *)notification{
+-(void)notifyInActive:(NSNotification *)notification {
     NSLog(@"Sample player is Notified by a Event : %@",notification.userInfo);
 }
 
