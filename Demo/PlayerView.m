@@ -11,11 +11,7 @@
 @implementation PlayerView
 
 - (id)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
+    return [super initWithFrame:frame];
 }
 
 + (Class)layerClass {

@@ -16,9 +16,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="nCS-Id-IBp"/>
-                        <segue destination="JdR-sG-zRF" kind="relationship" relationship="viewControllers" id="yKh-BB-VcU"/>
                         <segue destination="BZ2-ie-QYg" kind="relationship" relationship="viewControllers" id="3NY-1y-sNg"/>
-                        <segue destination="N3h-pH-pRZ" kind="relationship" relationship="viewControllers" id="5ZQ-EH-Gp9"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xme-bv-2Rh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -53,25 +51,6 @@
             </objects>
             <point key="canvasLocation" x="-145" y="-330"/>
         </scene>
-        <!--ID3 Audio-->
-        <scene sceneID="1Ej-mH-YiJ">
-            <objects>
-                <viewController id="JdR-sG-zRF" customClass="ID3AudioViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cfd-Gf-JiQ"/>
-                        <viewControllerLayoutGuide type="bottom" id="FOU-24-Qbl"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="A5P-yp-cZN">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="ID3 Audio" image="Speaker" id="oZi-gO-gSw"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KL4-pB-t9U" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-145" y="-1002"/>
-        </scene>
         <!--CMS Video-->
         <scene sceneID="CpJ-Nn-hIT">
             <objects>
@@ -83,12 +62,6 @@
                     <view key="view" contentMode="scaleToFill" id="RKd-8P-Sdg">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kav-X1-6Z2" customClass="PlayerView">
-                                <rect key="frame" x="0.0" y="-86" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="CMS Video" image="Television" id="ubH-rS-GC6"/>
@@ -97,28 +70,8 @@
             </objects>
             <point key="canvasLocation" x="-145" y="348"/>
         </scene>
-        <!--CMS Audio-->
-        <scene sceneID="mwx-TG-e3b">
-            <objects>
-                <viewController id="N3h-pH-pRZ" customClass="CMSAudioViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="d5l-JK-uQU"/>
-                        <viewControllerLayoutGuide type="bottom" id="KIB-Xi-GF5"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ayV-nL-Gqo">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="CMS Audio" image="Speaker" id="ZGT-12-Su7"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OsI-ri-RGT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-145" y="1028"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="Speaker" width="20" height="28"/>
         <image name="Television" width="28" height="18"/>
     </resources>
 </document>

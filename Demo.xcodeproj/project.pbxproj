@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2B04A7551B1CB088007B34F6 /* CMSVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B04A7541B1CB088007B34F6 /* CMSVideoViewController.m */; };
-		2B04A7581B1CB0BB007B34F6 /* ID3AudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B04A7571B1CB0BB007B34F6 /* ID3AudioViewController.m */; };
-		2B04A75B1B1CB0CC007B34F6 /* CMSAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B04A75A1B1CB0CC007B34F6 /* CMSAudioViewController.m */; };
 		2B04A75F1B1CE417007B34F6 /* NielsenAppApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B04A75E1B1CE417007B34F6 /* NielsenAppApi.framework */; };
 		2B04A7671B1E45E5007B34F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B04A7661B1E45E5007B34F6 /* UIKit.framework */; };
 		2B04A7691B1E45EF007B34F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B04A7681B1E45EF007B34F6 /* Foundation.framework */; };
@@ -43,10 +41,6 @@
 /* Begin PBXFileReference section */
 		2B04A7531B1CB088007B34F6 /* CMSVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSVideoViewController.h; sourceTree = "<group>"; };
 		2B04A7541B1CB088007B34F6 /* CMSVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSVideoViewController.m; sourceTree = "<group>"; };
-		2B04A7561B1CB0BB007B34F6 /* ID3AudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ID3AudioViewController.h; sourceTree = "<group>"; };
-		2B04A7571B1CB0BB007B34F6 /* ID3AudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ID3AudioViewController.m; sourceTree = "<group>"; };
-		2B04A7591B1CB0CC007B34F6 /* CMSAudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSAudioViewController.h; sourceTree = "<group>"; };
-		2B04A75A1B1CB0CC007B34F6 /* CMSAudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSAudioViewController.m; sourceTree = "<group>"; };
 		2B04A75E1B1CE417007B34F6 /* NielsenAppApi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NielsenAppApi.framework; path = "../NielsenAppSDK_4.0.0/Nielsen-iOS-App-SDK/Nielsen-iOS-App-SDK/NielsenAppApi.framework"; sourceTree = "<group>"; };
 		2B04A7611B1E4519007B34F6 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		2B04A7641B1E4581007B34F6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -63,7 +57,7 @@
 		2B1828E31B14DA0200DC1048 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2B1828E41B14DA0200DC1048 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2B1828E61B14DA0200DC1048 /* ID3VideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ID3VideoViewController.h; sourceTree = "<group>"; };
-		2B1828E71B14DA0200DC1048 /* ID3VideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ID3VideoViewController.m; sourceTree = "<group>"; };
+		2B1828E71B14DA0200DC1048 /* ID3VideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ID3VideoViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2B1828EA1B14DA0200DC1048 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2B1828EC1B14DA0200DC1048 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2B1828EF1B14DA0200DC1048 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -141,10 +135,6 @@
 				2B1828E71B14DA0200DC1048 /* ID3VideoViewController.m */,
 				2B04A7531B1CB088007B34F6 /* CMSVideoViewController.h */,
 				2B04A7541B1CB088007B34F6 /* CMSVideoViewController.m */,
-				2B04A7561B1CB0BB007B34F6 /* ID3AudioViewController.h */,
-				2B04A7571B1CB0BB007B34F6 /* ID3AudioViewController.m */,
-				2B04A7591B1CB0CC007B34F6 /* CMSAudioViewController.h */,
-				2B04A75A1B1CB0CC007B34F6 /* CMSAudioViewController.m */,
 				2B1828E91B14DA0200DC1048 /* Main.storyboard */,
 				2B1828EC1B14DA0200DC1048 /* Images.xcassets */,
 				2B1828EE1B14DA0200DC1048 /* LaunchScreen.xib */,
@@ -280,10 +270,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B04A75B1B1CB0CC007B34F6 /* CMSAudioViewController.m in Sources */,
 				2B04A7551B1CB088007B34F6 /* CMSVideoViewController.m in Sources */,
 				2B1828E81B14DA0200DC1048 /* ID3VideoViewController.m in Sources */,
-				2B04A7581B1CB0BB007B34F6 /* ID3AudioViewController.m in Sources */,
 				2B1828E51B14DA0200DC1048 /* AppDelegate.m in Sources */,
 				2B1828E21B14DA0200DC1048 /* main.m in Sources */,
 				2B1829071B14DAFC00DC1048 /* PlayerView.m in Sources */,
