@@ -17,6 +17,7 @@
 		2B04A7721B1E4631007B34F6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B04A7641B1E4581007B34F6 /* CoreLocation.framework */; };
 		2B04A7741B1E463A007B34F6 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B04A7731B1E463A007B34F6 /* CoreMedia.framework */; };
 		2B04A7751B1E464F007B34F6 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B04A7611B1E4519007B34F6 /* libsqlite3.dylib */; };
+		2B04A7781B2F3F91007B34F6 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 2B04A7771B2F3F91007B34F6 /* README.md */; };
 		2B1828E21B14DA0200DC1048 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1828E11B14DA0200DC1048 /* main.m */; };
 		2B1828E51B14DA0200DC1048 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1828E41B14DA0200DC1048 /* AppDelegate.m */; };
 		2B1828E81B14DA0200DC1048 /* ID3VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1828E71B14DA0200DC1048 /* ID3VideoViewController.m */; };
@@ -47,6 +48,7 @@
 		2B04A76E1B1E4616007B34F6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		2B04A7701B1E4622007B34F6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2B04A7731B1E463A007B34F6 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		2B04A7771B2F3F91007B34F6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2B1828DC1B14DA0200DC1048 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B1828E01B14DA0200DC1048 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B1828E11B14DA0200DC1048 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				2B1828E41B14DA0200DC1048 /* AppDelegate.m */,
 				2B1828E61B14DA0200DC1048 /* ID3VideoViewController.h */,
 				2B1828E71B14DA0200DC1048 /* ID3VideoViewController.m */,
+				2B04A7771B2F3F91007B34F6 /* README.md */,
 				2B1828E91B14DA0200DC1048 /* Main.storyboard */,
 				2B1828EC1B14DA0200DC1048 /* Images.xcassets */,
 				2B1828EE1B14DA0200DC1048 /* LaunchScreen.xib */,
@@ -262,6 +265,7 @@
 			files = (
 				2B1828E81B14DA0200DC1048 /* ID3VideoViewController.m in Sources */,
 				2B1828E51B14DA0200DC1048 /* AppDelegate.m in Sources */,
+				2B04A7781B2F3F91007B34F6 /* README.md in Sources */,
 				2B1828E21B14DA0200DC1048 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
