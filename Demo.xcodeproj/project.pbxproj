@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B04A7551B1CB088007B34F6 /* CMSVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B04A7541B1CB088007B34F6 /* CMSVideoViewController.m */; };
 		2B04A75F1B1CE417007B34F6 /* NielsenAppApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B04A75E1B1CE417007B34F6 /* NielsenAppApi.framework */; };
 		2B04A7671B1E45E5007B34F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B04A7661B1E45E5007B34F6 /* UIKit.framework */; };
 		2B04A7691B1E45EF007B34F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B04A7681B1E45EF007B34F6 /* Foundation.framework */; };
@@ -25,7 +24,6 @@
 		2B1828ED1B14DA0200DC1048 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B1828EC1B14DA0200DC1048 /* Images.xcassets */; };
 		2B1828F01B14DA0200DC1048 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B1828EE1B14DA0200DC1048 /* LaunchScreen.xib */; };
 		2B1828FC1B14DA0200DC1048 /* DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1828FB1B14DA0200DC1048 /* DemoTests.m */; };
-		2B1829071B14DAFC00DC1048 /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1829061B14DAFC00DC1048 /* PlayerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +37,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2B04A7531B1CB088007B34F6 /* CMSVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSVideoViewController.h; sourceTree = "<group>"; };
-		2B04A7541B1CB088007B34F6 /* CMSVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSVideoViewController.m; sourceTree = "<group>"; };
 		2B04A75E1B1CE417007B34F6 /* NielsenAppApi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NielsenAppApi.framework; path = "../NielsenAppSDK_4.0.0/Nielsen-iOS-App-SDK/Nielsen-iOS-App-SDK/NielsenAppApi.framework"; sourceTree = "<group>"; };
 		2B04A7611B1E4519007B34F6 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		2B04A7641B1E4581007B34F6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -64,8 +60,6 @@
 		2B1828F51B14DA0200DC1048 /* DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B1828FA1B14DA0200DC1048 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B1828FB1B14DA0200DC1048 /* DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoTests.m; sourceTree = "<group>"; };
-		2B1829051B14DAFC00DC1048 /* PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerView.h; sourceTree = "<group>"; };
-		2B1829061B14DAFC00DC1048 /* PlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,12 +123,8 @@
 			children = (
 				2B1828E31B14DA0200DC1048 /* AppDelegate.h */,
 				2B1828E41B14DA0200DC1048 /* AppDelegate.m */,
-				2B1829051B14DAFC00DC1048 /* PlayerView.h */,
-				2B1829061B14DAFC00DC1048 /* PlayerView.m */,
 				2B1828E61B14DA0200DC1048 /* ID3VideoViewController.h */,
 				2B1828E71B14DA0200DC1048 /* ID3VideoViewController.m */,
-				2B04A7531B1CB088007B34F6 /* CMSVideoViewController.h */,
-				2B04A7541B1CB088007B34F6 /* CMSVideoViewController.m */,
 				2B1828E91B14DA0200DC1048 /* Main.storyboard */,
 				2B1828EC1B14DA0200DC1048 /* Images.xcassets */,
 				2B1828EE1B14DA0200DC1048 /* LaunchScreen.xib */,
@@ -270,11 +260,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B04A7551B1CB088007B34F6 /* CMSVideoViewController.m in Sources */,
 				2B1828E81B14DA0200DC1048 /* ID3VideoViewController.m in Sources */,
 				2B1828E51B14DA0200DC1048 /* AppDelegate.m in Sources */,
 				2B1828E21B14DA0200DC1048 /* main.m in Sources */,
-				2B1829071B14DAFC00DC1048 /* PlayerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
