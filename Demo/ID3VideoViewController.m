@@ -122,7 +122,7 @@ NSString *assetInfo;
             [nielsenMeter stop];
         }
         
-        // Watch status to play asset once loaded
+    // Watch status to play asset once loaded
     } else if ([path isEqualToString:@"status"]) {
         if (self.avPlayerViewcontroller.player.status == AVPlayerItemStatusReadyToPlay) {
             NSLog(@"Ready to play");
@@ -130,7 +130,7 @@ NSString *assetInfo;
             [nielsenMeter play:playerInfo];
         }
         
-        // Parse ID3 Tags and send to Nielsen App API
+    // Parse ID3 Tags and send to Nielsen App API
     } else if ([path isEqualToString:@"currentItem.timedMetadata"]) {
         NSLog(@"Timed metadata.");
         for (AVMetadataItem *metadataItem in [[player currentItem] timedMetadata]) {
