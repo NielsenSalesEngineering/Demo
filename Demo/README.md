@@ -1,4 +1,4 @@
-# Nielsen App API SDK
+# Nielsen App API SDK Implementation
 
 This document will guide you through implementing the Nielsen App API SDK.  Read the engineering forum for more details and documentation.
 
