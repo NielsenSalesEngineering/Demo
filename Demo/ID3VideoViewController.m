@@ -18,6 +18,7 @@
 NielsenAppApi *nielsenMeter = nil;
 NSArray* array;
 NSString *playerInfo;
+NSString *assetInfo;
 
 
 @interface ID3VideoViewController ()
@@ -59,17 +60,16 @@ NSString *playerInfo;
     NSURL *url = [NSURL URLWithString:@"http://nielsense-assets.s3.amazonaws.com/id3/001/prog_index.m3u8"];
     NSDictionary *assetInfoDict = @{
                                 @"type": @"content",
-                                @"assetid": @"",
+                                @"assetid": @"demo",
                                 @"tv": @"true",
-                                @"program": @"MyProgram",
-                                @"title": @"MyEpisodeTitle",
-                                @"category": @"testcat",
+                                @"program": @"Demo Program",
+                                @"title": @"Demo Episode",
+                                @"category": @"test",
                                 @"adModel": @"2",
                                 @"dataSrc": @"id3"
                                 };
     NSData *assetInfoData = [NSJSONSerialization dataWithJSONObject:assetInfoDict options:0 error:nil];
-    NSString *assetInfo = [[NSString alloc] initWithBytes:[assetInfoData bytes] length:[assetInfoData length] encoding:NSUTF8StringEncoding];
-    [nielsenMeter loadMetadata:assetInfo];
+    assetInfo = [[NSString alloc] initWithBytes:[assetInfoData bytes] length:[assetInfoData length] encoding:NSUTF8StringEncoding];
 
     // Configure an AVPlayerViewController
     AVPlayerViewController *playerViewController = [[AVPlayerViewController alloc] init];
@@ -82,6 +82,7 @@ NSString *playerInfo;
     // Register Key Value Observers on status and rate attributes
     [self.avPlayerViewcontroller.player addObserver:self forKeyPath:@"status" options:0 context:nil];
     [self.avPlayerViewcontroller.player addObserver:self forKeyPath:@"rate" options:0 context:nil];
+    [self.avPlayerViewcontroller.player addObserver:self forKeyPath:@"currentItem.timedMetadata" options:0 context:nil];
     
     // Observe player every 2 seconds and update playheadPosition
     CMTime i = CMTimeMakeWithSeconds(2.0, NSEC_PER_SEC);
@@ -95,7 +96,6 @@ NSString *playerInfo;
 
 - (void) resizePlayerToViewSize {
     CGRect frame = self.view.frame;
-    NSLog(@"frame size %d, %d", (int)frame.size.width, (int)frame.size.height);
     self.avPlayerViewcontroller.view.frame = frame;
 }
 
@@ -106,6 +106,7 @@ NSString *playerInfo;
         if ([self.avPlayerViewcontroller.player rate]) {
             NSLog(@"Unpaused.");
             [nielsenMeter play:playerInfo];
+            [nielsenMeter loadMetadata:assetInfo];
         } else {
             NSLog(@"Paused.");
             [nielsenMeter stop];
