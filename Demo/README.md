@@ -136,7 +136,7 @@ Navigate to Build Settings > Linking > Other Linker Flags and add lstdc++ for An
 
 ### Implement Nielsen App API Delegate
 
-Implement `[NielsenAppApi eventOccurred:]` and `[NielsenAppApi errorOccurred:]` in order to fulfill the Nielsen App API Delegate.  Don't forget to add `<NielsenAppApiDelegate>` to your View Controller's `@interface`.'
+Implement `[NielsenAppApi eventOccurred:]` and `[NielsenAppApi errorOccurred:]` in order to fulfill the Nielsen App API delegate.  Don't forget to add `<NielsenAppApiDelegate>` to your view controller's `@interface`.
 
     - (void)nielsenAppApi:(NielsenAppApi *)appApi eventOccurred:(NSDictionary *)event {
         NSLog(@"Sample player is Notified by a Event : %@", event);
