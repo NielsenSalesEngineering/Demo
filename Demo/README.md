@@ -91,12 +91,58 @@ Navigate to Build Settings > Linking > Other Linker Flags and add lstdc++ for An
 
 ### Watch for rate changes to handle pauses in playback.  A rate of 0 is paused.
 
+    if ([path isEqualToString:@"rate"]) {
+        if ([self.avPlayerViewcontroller.player rate]) {
+            NSLog(@"Unpaused.");
+            [nielsenMeter play:playerInfo];
+            [nielsenMeter loadMetadata:assetInfo];
+        } else {
+            NSLog(@"Paused.");
+            [nielsenMeter stop];
+        }
+
 
 ### Watch status to play asset once loaded
+
+    } else if ([path isEqualToString:@"status"]) {
+        if (self.avPlayerViewcontroller.player.status == AVPlayerItemStatusReadyToPlay) {
+            NSLog(@"Ready to play");
+            [self.avPlayerViewcontroller.player play];
+            [nielsenMeter play:playerInfo];
+        }
 
 
 ### Parse ID3 Tags and send to Nielsen App API
 
+    } else if ([path isEqualToString:@"currentItem.timedMetadata"]) {
+        NSLog(@"Parsing ID3 content.");
+        for (AVMetadataItem *metadataItem in [[player currentItem] timedMetadata]) {
+            id extraAttributeType = [metadataItem extraAttributes];
+            NSString *extraString = nil;
+            if ([extraAttributeType isKindOfClass:[NSDictionary class]]) {
+                extraString = [extraAttributeType valueForKey:@"info"];
+            }
+            else if ([extraAttributeType isKindOfClass:[NSString class]]) {
+                extraString = extraAttributeType;
+            }
+            if ([(NSString *)[metadataItem key] isEqualToString:@"PRIV"] && [extraString rangeOfString:@"www.nielsen.com"].length > 0) {
+                if ([[metadataItem value] isKindOfClass:[NSData class]]) {
+                    [nielsenMeter sendID3:extraString];
+                }
+            }
+        }
+    }
+
 
 ### Implement Nielsen App API Delegate
+
+Implement `[NielsenAppApi eventOccurred:]` and `[NielsenAppApi errorOccurred:]` in order to fulfill the Nielsen App API Delegate.  Don't forget to add `<NielsenAppApiDelegate>` to your View Controller's `@interface`.'
+
+    - (void)nielsenAppApi:(NielsenAppApi *)appApi eventOccurred:(NSDictionary *)event {
+        NSLog(@"Sample player is Notified by a Event : %@", event);
+    }
+
+    - (void)nielsenAppApi:(NielsenAppApi *)appApi errorOccurred:(NSDictionary *)error {
+        NSLog(@"Sample player is Notified by an Error : %@", error);
+    }
 
