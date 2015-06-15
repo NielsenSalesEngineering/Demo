@@ -79,7 +79,9 @@ Navigate to Build Settings > Linking > Other Linker Flags and add lstdc++ for An
 
 ### Implement KVO
 
-Register key value observers on the player's `status` and `rate` keys.  If you're using ID3 encoded media, register `currentItem.timedMetadata`.
+Register key-value observers on the player's `status` and `rate` keys.  If you're using ID3 encoded media, register `currentItem.timedMetadata`.
+
+Read Apple's [Introduction to Key-Value Observing Programming Guide](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/KeyValueObserving/KeyValueObserving.html) for an overview of KVO.
 
     [self.avPlayerViewcontroller.player addObserver:self forKeyPath:@"status" options:0 context:nil];
     [self.avPlayerViewcontroller.player addObserver:self forKeyPath:@"rate" options:0 context:nil];
