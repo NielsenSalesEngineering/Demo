@@ -1,6 +1,6 @@
 # Nielsen App API SDK Implementation
 
-This document will guide you through implementing the Nielsen App API SDK.  Read the engineering forum for more details and documentation.
+This document will guide you through implementing the Nielsen App API SDK.  Read Nielsen's [Engineering Client Portal](http://engineeringforum.nielsen.com/sdk/developers/) for more details and documentation.
 
 
 ## Implementing the SDK
@@ -163,4 +163,9 @@ Implement `[NielsenAppApi eventOccurred:]` and `[NielsenAppApi errorOccurred:]` 
     - (void)nielsenAppApi:(NielsenAppApi *)appApi errorOccurred:(NSDictionary *)error {
         NSLog(@"Sample player is Notified by an Error : %@", error);
     }
+
+
+## Getting Help
+
+Reach out to SalesEngineeringGlobal@nielsen.com or visit Nielsen's [Engineering Client Portal](http://engineeringforum.nielsen.com/sdk/developers/) for more information.
 
