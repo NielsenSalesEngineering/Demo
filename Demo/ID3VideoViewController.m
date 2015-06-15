@@ -99,31 +99,6 @@ NSString *playerInfo;
     self.avPlayerViewcontroller.view.frame = frame;
 }
 
--(void)handleTimedMetada:(AVMetadataItem*)timedMetadata {
-    NSLog(@"handleTimedMetadata");
-    id extraAttributeType = [timedMetadata extraAttributes];
-    NSString *extraString = nil;
-    if ([extraAttributeType isKindOfClass:[NSDictionary class]]) {
-        extraString = [extraAttributeType valueForKey:@"info"];
-    }
-    else if ([extraAttributeType isKindOfClass:[NSString class]]) {
-        extraString = extraAttributeType;
-    }
-    
-    if ([(NSString *)[timedMetadata key] isEqualToString:@"PRIV"] && [extraString rangeOfString:@"www.nielsen.com"].length > 0) {
-        if ([[timedMetadata value] isKindOfClass:[NSData class]]) {
-            // Send ID3 Tag
-            [nielsenMeter sendID3:extraString];
-            NSString *value = [timedMetadata stringValue];
-            if (value != nil) {
-                NSLog(extraString);
-            }
-        }
-    } else {
-        NSLog(@"Could not send ID3 Tags");
-    }
-};
-
 - (void)observeValueForKeyPath:(NSString *)path ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 
     // Watch for rate changes to handle pauses in playback.  A rate of 0 is paused.
@@ -143,18 +118,34 @@ NSString *playerInfo;
             [self.avPlayerViewcontroller.player play];
             [nielsenMeter play:playerInfo];
         }
+    
+    // Parse ID3 Tags and send to Nielsen App API
+    } else if ([path isEqualToString:@"currentItem.timedMetadata"]) {
+        NSLog(@"Timed metadata.");
+        array =[[player currentItem] timedMetadata];
+        for (AVMetadataItem *metadataItem in array) {
+            id extraAttributeType = [metadataItem extraAttributes];
+            NSString *extraString = nil;
+            if ([extraAttributeType isKindOfClass:[NSDictionary class]]) {
+                extraString = [extraAttributeType valueForKey:@"info"];
+            }
+            else if ([extraAttributeType isKindOfClass:[NSString class]]) {
+                extraString = extraAttributeType;
+            }
+            if ([(NSString *)[metadataItem key] isEqualToString:@"PRIV"] && [extraString rangeOfString:@"www.nielsen.com"].length > 0) {
+                if ([[metadataItem value] isKindOfClass:[NSData class]]) {
+                    // Send ID3 Tag
+                    [nielsenMeter sendID3:extraString];
+                    NSString *value = [metadataItem stringValue];
+                    if (value != nil) {
+                        NSLog(extraString);
+                    }
+                }
+            } else {
+                NSLog(@"Could not send ID3 Tags");
+            }
+        }
     }
-
-//    if (context == MyStreamingMovieViewControllerCurrentItemObservationContext) {
-//        NSLog(@"MyStreamingMovieViewControllerCurrentItemObservationContext");
-//    } else if (context == MyStreamingMovieViewControllerTimedMetadataObserverContext) {
-//        NSLog(@"MyStreamingMovieViewControllerTimedMetadataObserverContext");
-//        array = [[player currentItem] timedMetadata];
-//        for (AVMetadataItem *metadataItem in array) {
-//            [self handleTimedMetada:metadataItem];
-//        }
-//    }
-//}
 }
 
 -(void)notifyInActive:(NSNotification *)notification {
