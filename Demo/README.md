@@ -32,6 +32,8 @@ Navigate to Build Settings > Linking > Other Linker Flags and add lstdc++ for An
 
 ### Instantiate the SDK
 
+`[NielsenAppApi initWithAppInfo:delegate:]` expects a `JSON` formatted string, which we construct from a dictionary below.  Delegate methods are documented later in this tutorial.
+
     NSDictionary *nielsenConfig = @{
         @"appid": @"T6DABF79D-CE15-4A47-A201-4E7DFE0F7EF0",
         @"appversion": @"1.0",
@@ -43,7 +45,9 @@ Navigate to Build Settings > Linking > Other Linker Flags and add lstdc++ for An
     nielsenMeter = [[NielsenAppApi alloc] initWithAppInfo:jsonStringNielsenConfig delegate:self];
 
 
-### Configure the player
+### Player Configuration
+
+`[NielsenAppApi play:]` expects a `JSON` formatted string, which we construct from a dictionary below.
 
     NSDictionary *playerInfoDict = @{
         @"channelName": @"Video Demo",
@@ -54,9 +58,11 @@ Navigate to Build Settings > Linking > Other Linker Flags and add lstdc++ for An
     playerInfo = [[NSString alloc] initWithBytes:[playerInfoData bytes] length:[playerInfoData length] encoding:NSUTF8StringEncoding];
 
 
-### Configure the asset
+### Asset Metadata Configuration
 
-    hString:@"http://nielsense-assets.s3.amazonaws.com/id3/001/prog_index.m3u8"];
+`[NielsenAppApi loadMetadata:]` expects a `JSON` formatted string, which we construct from a dictionary below.
+
+    NSURL *url = [NSURL URLWithString:@"http://nielsense-assets.s3.amazonaws.com/id3/001/prog_index.m3u8"];
     NSDictionary *assetInfoDict = @{
         @"type": @"content",
         @"assetid": @"demo",
@@ -71,14 +77,18 @@ Navigate to Build Settings > Linking > Other Linker Flags and add lstdc++ for An
     assetInfo = [[NSString alloc] initWithBytes:[assetInfoData bytes] length:[assetInfoData length] encoding:NSUTF8StringEncoding];
 
 
-### Register Key Value Observers on status and rate.  Register currentItem.timedMetadata if using ID3
+### Implement KVO
+
+Register key value observers on the player's `status` and `rate` keys.  If you're using ID3 encoded media, register `currentItem.timedMetadata`.
 
     [self.avPlayerViewcontroller.player addObserver:self forKeyPath:@"status" options:0 context:nil];
     [self.avPlayerViewcontroller.player addObserver:self forKeyPath:@"rate" options:0 context:nil];
     [self.avPlayerViewcontroller.player addObserver:self forKeyPath:@"currentItem.timedMetadata" options:0 context:nil];
 
 
-### Observe player every 2 seconds and update playheadPosition
+### Updating Playhead Position 
+
+Observe player every 2 seconds and update `[NielsenAppApi playheadPosition:]`.
 
     CMTime i = CMTimeMakeWithSeconds(2.0, NSEC_PER_SEC);
     [self.avPlayerViewcontroller.player addPeriodicTimeObserverForInterval:i queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
@@ -89,7 +99,9 @@ Navigate to Build Settings > Linking > Other Linker Flags and add lstdc++ for An
     }];
 
 
-### Watch for rate changes to handle pauses in playback.  A rate of 0 is paused.
+### Observing Play and Pause Events
+
+Watch the playback rate for changes to handle pauses.  A rate of 0 is paused 1 is normal playback.
 
     if ([path isEqualToString:@"rate"]) {
         if ([self.avPlayerViewcontroller.player rate]) {
@@ -134,7 +146,7 @@ Navigate to Build Settings > Linking > Other Linker Flags and add lstdc++ for An
     }
 
 
-### Implement Nielsen App API Delegate
+### Implement Delegate Methods
 
 Implement `[NielsenAppApi eventOccurred:]` and `[NielsenAppApi errorOccurred:]` in order to fulfill the Nielsen App API delegate.  Don't forget to add `<NielsenAppApiDelegate>` to your view controller's `@interface`.
 
