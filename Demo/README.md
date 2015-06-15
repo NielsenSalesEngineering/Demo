@@ -101,7 +101,7 @@ Observe player every 2 seconds and update `[NielsenAppApi playheadPosition:]`.
 
 ### Observing Play and Pause Events
 
-Watch the playback rate for changes to handle pauses.  A rate of 0 is paused 1 is normal playback.
+Watch the playback rate for changes to handle pauses.  A rate of 0 is paused.  1 is normal playback.
 
     if ([path isEqualToString:@"rate"]) {
         if ([self.avPlayerViewcontroller.player rate]) {
