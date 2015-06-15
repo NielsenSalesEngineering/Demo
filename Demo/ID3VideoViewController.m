@@ -78,7 +78,7 @@ NSString *assetInfo;
     [self.view addSubview:playerViewController.view];
     self.view.autoresizesSubviews = TRUE;
     
-    // Register Key Value Observers on status and rate attributes
+    // Register Key Value Observers on status and rate.  Register currentItem.timedMetadata if using ID3
     [self.avPlayerViewcontroller.player addObserver:self forKeyPath:@"status" options:0 context:nil];
     [self.avPlayerViewcontroller.player addObserver:self forKeyPath:@"rate" options:0 context:nil];
     [self.avPlayerViewcontroller.player addObserver:self forKeyPath:@"currentItem.timedMetadata" options:0 context:nil];
