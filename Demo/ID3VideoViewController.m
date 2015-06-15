@@ -16,7 +16,6 @@
 
 
 NielsenAppApi *nielsenMeter = nil;
-NSArray* array;
 NSString *playerInfo;
 NSString *assetInfo;
 
@@ -75,7 +74,7 @@ NSString *assetInfo;
     AVPlayerViewController *playerViewController = [[AVPlayerViewController alloc] init];
     playerViewController.player = [AVPlayer playerWithURL:url];
     self.avPlayerViewcontroller = playerViewController;
-    [self resizePlayerToViewSize];
+    self.avPlayerViewcontroller.view.frame = self.view.frame;
     [self.view addSubview:playerViewController.view];
     self.view.autoresizesSubviews = TRUE;
     
@@ -92,11 +91,6 @@ NSString *assetInfo;
         long position = CMTimeGetSeconds(t);
         [nielsenMeter playheadPosition:position];
     }];
-}
-
-- (void) resizePlayerToViewSize {
-    CGRect frame = self.view.frame;
-    self.avPlayerViewcontroller.view.frame = frame;
 }
 
 - (void)observeValueForKeyPath:(NSString *)path ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
@@ -123,8 +117,7 @@ NSString *assetInfo;
     // Parse ID3 Tags and send to Nielsen App API
     } else if ([path isEqualToString:@"currentItem.timedMetadata"]) {
         NSLog(@"Timed metadata.");
-        array =[[player currentItem] timedMetadata];
-        for (AVMetadataItem *metadataItem in array) {
+        for (AVMetadataItem *metadataItem in [[player currentItem] timedMetadata]) {
             id extraAttributeType = [metadataItem extraAttributes];
             NSString *extraString = nil;
             if ([extraAttributeType isKindOfClass:[NSDictionary class]]) {
@@ -135,15 +128,8 @@ NSString *assetInfo;
             }
             if ([(NSString *)[metadataItem key] isEqualToString:@"PRIV"] && [extraString rangeOfString:@"www.nielsen.com"].length > 0) {
                 if ([[metadataItem value] isKindOfClass:[NSData class]]) {
-                    // Send ID3 Tag
                     [nielsenMeter sendID3:extraString];
-                    NSString *value = [metadataItem stringValue];
-                    if (value != nil) {
-                        NSLog(extraString);
-                    }
                 }
-            } else {
-                NSLog(@"Could not send ID3 Tags");
             }
         }
     }
