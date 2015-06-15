@@ -114,7 +114,9 @@ Watch the playback rate for changes to handle pauses.  A rate of 0 is paused.  1
         }
 
 
-### Watch status to play asset once loaded
+### Play Asset
+
+Observe `status` key to play asset once loaded.
 
     } else if ([path isEqualToString:@"status"]) {
         if (self.avPlayerViewcontroller.player.status == AVPlayerItemStatusReadyToPlay) {
@@ -124,7 +126,9 @@ Watch the playback rate for changes to handle pauses.  A rate of 0 is paused.  1
         }
 
 
-### Parse ID3 Tags and send to Nielsen App API
+### ID3 Metadata
+
+Observe `currentItem.timedMetadata` and parse ID3 data when fired.
 
     } else if ([path isEqualToString:@"currentItem.timedMetadata"]) {
         NSLog(@"Parsing ID3 content.");
