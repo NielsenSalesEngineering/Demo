@@ -132,7 +132,7 @@ NSString *assetInfo;
         
     // Parse ID3 Tags and send to Nielsen App API
     } else if ([path isEqualToString:@"currentItem.timedMetadata"]) {
-        NSLog(@"Timed metadata.");
+        NSLog(@"Parsing ID3 content.");
         for (AVMetadataItem *metadataItem in [[player currentItem] timedMetadata]) {
             id extraAttributeType = [metadataItem extraAttributes];
             NSString *extraString = nil;
