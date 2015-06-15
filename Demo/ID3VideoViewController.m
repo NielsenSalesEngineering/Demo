@@ -6,6 +6,9 @@
 //  Copyright (c) 2015 Nielsen. All rights reserved.
 //
 
+# pragma mark Standard View Controller Stuff
+# pragma mark -
+
 #import "ID3VideoViewController.h"
 
 #import <CoreMedia/CoreMedia.h>
@@ -93,8 +96,21 @@ NSString *assetInfo;
     }];
 }
 
-- (void)observeValueForKeyPath:(NSString *)path ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+-(void)notifyInActive:(NSNotification *)notification {
+    NSLog(@"notifyInActive: %@", notification.userInfo);
+}
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+
+# pragma mark -
+# pragma mark Key Value Observation
+# pragma mark -
+
+- (void)observeValueForKeyPath:(NSString *)path ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    
     // Watch for rate changes to handle pauses in playback.  A rate of 0 is paused.
     if ([path isEqualToString:@"rate"]) {
         if ([self.avPlayerViewcontroller.player rate]) {
@@ -105,16 +121,16 @@ NSString *assetInfo;
             NSLog(@"Paused.");
             [nielsenMeter stop];
         }
-    
-    // Watch status to play asset once loaded
+        
+        // Watch status to play asset once loaded
     } else if ([path isEqualToString:@"status"]) {
         if (self.avPlayerViewcontroller.player.status == AVPlayerItemStatusReadyToPlay) {
             NSLog(@"Ready to play");
             [self.avPlayerViewcontroller.player play];
             [nielsenMeter play:playerInfo];
         }
-    
-    // Parse ID3 Tags and send to Nielsen App API
+        
+        // Parse ID3 Tags and send to Nielsen App API
     } else if ([path isEqualToString:@"currentItem.timedMetadata"]) {
         NSLog(@"Timed metadata.");
         for (AVMetadataItem *metadataItem in [[player currentItem] timedMetadata]) {
@@ -133,14 +149,6 @@ NSString *assetInfo;
             }
         }
     }
-}
-
--(void)notifyInActive:(NSNotification *)notification {
-    NSLog(@"notifyInActive: %@", notification.userInfo);
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 
