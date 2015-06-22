@@ -52,7 +52,7 @@ Navigate to Build Settings > Linking > Other Linker Flags and add lstdc++ for An
     NSDictionary *playerInfoDict = @{
         @"channelName": @"Video Demo",
         @"adModel": @"2",
-        @"dataSrc": @"id3"
+        @"dataSrc": @"cms"
     };
     NSData *playerInfoData = [NSJSONSerialization dataWithJSONObject:playerInfoDict options:0 error:nil];
     playerInfo = [[NSString alloc] initWithBytes:[playerInfoData bytes] length:[playerInfoData length] encoding:NSUTF8StringEncoding];
@@ -71,7 +71,7 @@ Navigate to Build Settings > Linking > Other Linker Flags and add lstdc++ for An
         @"title": @"Demo Episode",
         @"category": @"test",
         @"adModel": @"2",
-        @"dataSrc": @"id3"
+        @"dataSrc": @"cms"
     };
     NSData *assetInfoData = [NSJSONSerialization dataWithJSONObject:assetInfoDict options:0 error:nil];
     assetInfo = [[NSString alloc] initWithBytes:[assetInfoData bytes] length:[assetInfoData length] encoding:NSUTF8StringEncoding];
