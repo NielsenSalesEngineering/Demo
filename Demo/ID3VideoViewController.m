@@ -53,7 +53,7 @@ NSString *assetInfo;
     NSDictionary *playerInfoDict = @{
                                  @"channelName": @"Video Demo",
                                  @"adModel": @"2",
-                                 @"dataSrc": @"id3"
+                                 @"dataSrc": @"cms"
                                  };
     NSData *playerInfoData = [NSJSONSerialization dataWithJSONObject:playerInfoDict options:0 error:nil];
     playerInfo = [[NSString alloc] initWithBytes:[playerInfoData bytes] length:[playerInfoData length] encoding:NSUTF8StringEncoding];
