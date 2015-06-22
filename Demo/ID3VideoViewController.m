@@ -68,7 +68,14 @@ NSString *assetInfo;
                                 @"title": @"Demo Episode",
                                 @"category": @"test",
                                 @"adModel": @"2",
-                                @"dataSrc": @"id3"
+                                @"dataSrc": @"cms",
+                                @"segA": @"Segment A",
+                                @"segB": @"Segment B",
+                                @"segC": @"Segment C",
+                                @"adobeID": @"AdobeID",
+                                @"reportSuite": @"RS-123",
+                                @"crossId1": @"CRSID-1",
+                                @"crossId2": @"CRSID-2"
                                 };
     NSData *assetInfoData = [NSJSONSerialization dataWithJSONObject:assetInfoDict options:0 error:nil];
     assetInfo = [[NSString alloc] initWithBytes:[assetInfoData bytes] length:[assetInfoData length] encoding:NSUTF8StringEncoding];
@@ -84,7 +91,9 @@ NSString *assetInfo;
     // Register Key Value Observers on status and rate.  Register currentItem.timedMetadata if using ID3
     [self.avPlayerViewcontroller.player addObserver:self forKeyPath:@"status" options:0 context:nil];
     [self.avPlayerViewcontroller.player addObserver:self forKeyPath:@"rate" options:0 context:nil];
-    [self.avPlayerViewcontroller.player addObserver:self forKeyPath:@"currentItem.timedMetadata" options:0 context:nil];
+    
+    // Uncomment to check assets for ID3 encoded metadata
+    // [self.avPlayerViewcontroller.player addObserver:self forKeyPath:@"currentItem.timedMetadata" options:0 context:nil];
     
     // Observe player every 2 seconds and update playheadPosition
     CMTime i = CMTimeMakeWithSeconds(2.0, NSEC_PER_SEC);
