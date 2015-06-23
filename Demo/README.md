@@ -93,9 +93,10 @@ Read Apple's [Introduction to Key-Value Observing Programming Guide](https://dev
 Observe player every 2 seconds and update `[NielsenAppApi playheadPosition:]`.
 
     CMTime i = CMTimeMakeWithSeconds(2.0, NSEC_PER_SEC);
+    __weak typeof(self) weakSelf = self;
     [self.avPlayerViewcontroller.player addPeriodicTimeObserverForInterval:i queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
         NSLog(@"Update playhead position");
-        CMTime t = [self.avPlayerViewcontroller.player currentTime];
+        CMTime t = [weakSelf.avPlayerViewcontroller.player currentTime];
         long position = CMTimeGetSeconds(t);
         [nielsenMeter playheadPosition:position];
     }];
