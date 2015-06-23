@@ -97,7 +97,8 @@ NSString *assetInfo;
     
     // Observe player every 2 seconds and update playheadPosition
     CMTime i = CMTimeMakeWithSeconds(2.0, NSEC_PER_SEC);
-    [self.avPlayerViewcontroller.player addPeriodicTimeObserverForInterval:i queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
+    __weak typeof(self) weakSelf = self;
+    [weakSelf.avPlayerViewcontroller.player addPeriodicTimeObserverForInterval:i queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
         NSLog(@"Update playhead position");
         CMTime t = [self.avPlayerViewcontroller.player currentTime];
         long position = CMTimeGetSeconds(t);
