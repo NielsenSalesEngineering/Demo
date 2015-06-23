@@ -106,7 +106,7 @@ NSString *assetInfo;
     }];
 }
 
--(void)notifyInActive:(NSNotification *)notification {
+- (void)notifyInActive:(NSNotification *)notification {
     NSLog(@"notifyInActive: %@", notification.userInfo);
 }
 
