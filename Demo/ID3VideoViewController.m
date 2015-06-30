@@ -104,6 +104,9 @@ NSString *assetInfo;
         long position = CMTimeGetSeconds(t);
         [nielsenMeter playheadPosition:position];
     }];
+    
+    // Users can opt out
+    NSLog(@"Opt out URL: %@", [nielsenMeter optOutURLString]);
 }
 
 - (void)notifyInActive:(NSNotification *)notification {
