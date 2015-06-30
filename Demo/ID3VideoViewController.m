@@ -168,7 +168,7 @@ NSString *assetInfo;
 
 // Fulfill Nielsen App API Delegate
 - (void)nielsenAppApi:(NielsenAppApi *)appApi eventOccurred:(NSDictionary *)event {
-    NSLog(@"Sample player is Notified by a Event : %@", event);
+    NSLog(@"Sample player is Notified by an Event : %@", event);
 }
 
 // Fulfill Nielsen App API Delegate
