@@ -110,7 +110,6 @@ WKWebView *webView;
     CMTime i = CMTimeMakeWithSeconds(2.0, NSEC_PER_SEC);
     __weak typeof(self) weakSelf = self;
     [self.avPlayerViewcontroller.player addPeriodicTimeObserverForInterval:i queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
-        NSLog(@"Update playhead position");
         CMTime t = [weakSelf.avPlayerViewcontroller.player currentTime];
         long position = CMTimeGetSeconds(t);
         [nielsenMeter playheadPosition:position];
@@ -134,18 +133,15 @@ WKWebView *webView;
     // Watch for rate changes to handle pauses in playback.  A rate of 0 is paused.
     if ([path isEqualToString:@"rate"]) {
         if ([self.avPlayerViewcontroller.player rate]) {
-            NSLog(@"Unpaused.");
             [nielsenMeter play:playerInfo];
             [nielsenMeter loadMetadata:assetInfo];
         } else {
-            NSLog(@"Paused.");
             [nielsenMeter stop];
         }
         
     // Watch status to play asset once loaded
     } else if ([path isEqualToString:@"status"]) {
         if (self.avPlayerViewcontroller.player.status == AVPlayerItemStatusReadyToPlay) {
-            NSLog(@"Ready to play");
             [self.avPlayerViewcontroller.player play];
             [nielsenMeter play:playerInfo];
         }
@@ -159,7 +155,6 @@ WKWebView *webView;
 - (void)didSelectOptOut {
     
     // Load optOutURLString into a Web View for opt out
-    NSLog(@"Selected opt out.");
     WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
     webView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:configuration];
     webView.navigationDelegate = self;
