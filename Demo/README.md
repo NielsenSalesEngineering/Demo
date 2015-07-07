@@ -166,6 +166,23 @@ Implement `[NielsenAppApi eventOccurred:]` and `[NielsenAppApi errorOccurred:]` 
     }
 
 
+## Implement User Opt Out
+
+Your app must provide a means for the user to opt-out of, or opt back into, Nielsen Measurement. To implement the opt-out option, you must include a web view within the app which loads the URL returned by optOutURLString:.  Redirecting the user from app to Safari is not an acceptable implementation.  The URL must be loaded in a web view within your app.
+
+    WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
+    webView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:configuration];
+    webView.navigationDelegate = self;
+    NSURL *url = [NSURL URLWithString:[nielsenMeter optOutURLString]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [webView loadRequest:request];
+
+Notify the SDK of the user’s selection by passing the URL to userOptOut.
+
+    NSString *finalURL = [NSString stringWithFormat:@"%@", webView.URL];
+    [nielsenMeter userOptOut:finalURL];
+
+
 ## Getting Help
 
 Reach out to SalesEngineeringGlobal@nielsen.com or visit Nielsen's [Engineering Client Portal](http://engineeringforum.nielsen.com/sdk/developers/) for more information.
