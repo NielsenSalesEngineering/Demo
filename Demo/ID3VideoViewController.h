@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import <NielsenAppApi/NielsenAppApi.h>
+@import WebKit;
 
 @class PlayerView;
-@interface ID3VideoViewController : UIViewController <NielsenAppApiDelegate>
+@interface ID3VideoViewController : UIViewController <NielsenAppApiDelegate, WKNavigationDelegate>
 
 @property (nonatomic) AVPlayer *player;
 @property (nonatomic) AVPlayerItem *playerItem;

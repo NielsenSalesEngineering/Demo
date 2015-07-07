@@ -7,7 +7,6 @@
 //
 
 # pragma mark Standard View Controller Stuff
-# pragma mark -
 
 #import "ID3VideoViewController.h"
 
@@ -16,11 +15,14 @@
 #import "NielsenAppApi/NielsenAppApi.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AVKit/AVKit.h>
+@import UIKit;
+@import WebKit;
 
 
 NielsenAppApi *nielsenMeter = nil;
 NSString *playerInfo;
 NSString *assetInfo;
+WKWebView *webView;
 
 
 @interface ID3VideoViewController ()
@@ -88,12 +90,21 @@ NSString *assetInfo;
     [self.view addSubview:playerViewController.view];
     self.view.autoresizesSubviews = TRUE;
     
+    // Provide a button to opt out
+    NSString *labelText = @"Opt Out";
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size:12]};
+    CGSize size = [labelText sizeWithAttributes:attributes];
+    button.frame = CGRectMake(5, 55, size.width + 20, size.height);
+    [button setTitle:labelText forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(didSelectOptOut) forControlEvents:UIControlEventTouchUpInside];
+    [button setUserInteractionEnabled:YES];
+    [button setEnabled:YES];
+    [self.avPlayerViewcontroller.view addSubview:button];
+    
     // Register Key Value Observers on status and rate.  Register currentItem.timedMetadata if using ID3
     [self.avPlayerViewcontroller.player addObserver:self forKeyPath:@"status" options:0 context:nil];
     [self.avPlayerViewcontroller.player addObserver:self forKeyPath:@"rate" options:0 context:nil];
-    
-    // Uncomment to check assets for ID3 encoded metadata
-    // [self.avPlayerViewcontroller.player addObserver:self forKeyPath:@"currentItem.timedMetadata" options:0 context:nil];
     
     // Observe player every 2 seconds and update playheadPosition
     CMTime i = CMTimeMakeWithSeconds(2.0, NSEC_PER_SEC);
@@ -104,9 +115,6 @@ NSString *assetInfo;
         long position = CMTimeGetSeconds(t);
         [nielsenMeter playheadPosition:position];
     }];
-    
-    // Users can opt out
-    NSLog(@"Opt out URL: %@", [nielsenMeter optOutURLString]);
 }
 
 - (void)notifyInActive:(NSNotification *)notification {
@@ -120,7 +128,6 @@ NSString *assetInfo;
 
 # pragma mark -
 # pragma mark Key Value Observation
-# pragma mark -
 
 - (void)observeValueForKeyPath:(NSString *)path ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     
@@ -142,32 +149,47 @@ NSString *assetInfo;
             [self.avPlayerViewcontroller.player play];
             [nielsenMeter play:playerInfo];
         }
-        
-    // Parse ID3 Tags and send to Nielsen App API
-    } else if ([path isEqualToString:@"currentItem.timedMetadata"]) {
-        NSLog(@"Parsing ID3 content.");
-        for (AVMetadataItem *metadataItem in [[player currentItem] timedMetadata]) {
-            id extraAttributeType = [metadataItem extraAttributes];
-            NSString *extraString = nil;
-            if ([extraAttributeType isKindOfClass:[NSDictionary class]]) {
-                extraString = [extraAttributeType valueForKey:@"info"];
-            }
-            else if ([extraAttributeType isKindOfClass:[NSString class]]) {
-                extraString = extraAttributeType;
-            }
-            if ([(NSString *)[metadataItem key] isEqualToString:@"PRIV"] && [extraString rangeOfString:@"www.nielsen.com"].length > 0) {
-                if ([[metadataItem value] isKindOfClass:[NSData class]]) {
-                    [nielsenMeter sendID3:extraString];
-                }
-            }
-        }
     }
 }
 
 
 # pragma mark -
-# pragma mark Nielsen App API Delegates
+# pragma mark Privacy Opt Out
+
+- (void)didSelectOptOut {
+    
+    // Load optOutURLString into a Web View for opt out
+    NSLog(@"Selected opt out.");
+    WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
+    webView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:configuration];
+    webView.navigationDelegate = self;
+    NSURL *url = [NSURL URLWithString:[nielsenMeter optOutURLString]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [webView loadRequest:request];
+    NSString *labelButtonText = @"Close";
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size:12]};
+    CGSize size = [labelButtonText sizeWithAttributes:attributes];
+    button.frame = CGRectMake(5, 55, size.width + 20, size.height);
+    [button setTitle:labelButtonText forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(closeOptOutView) forControlEvents:UIControlEventTouchUpInside];
+    [button setUserInteractionEnabled:YES];
+    [button setEnabled:YES];
+    [webView addSubview:button];
+    [self.view addSubview:webView];
+}
+
+- (void)closeOptOutView {
+    
+    // Pass URL from Web View to userOptOut to enable/disable tracking
+    NSString *finalURL = [NSString stringWithFormat:@"%@", webView.URL];
+    [nielsenMeter userOptOut:finalURL];
+    [webView removeFromSuperview];
+}
+
+
 # pragma mark -
+# pragma mark Nielsen App API Delegates
 
 // Fulfill Nielsen App API Delegate
 - (void)nielsenAppApi:(NielsenAppApi *)appApi eventOccurred:(NSDictionary *)event {
