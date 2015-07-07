@@ -42,7 +42,7 @@ WKWebView *webView;
     
     // Configure the Nielsen App SDK
     NSDictionary *nielsenConfig = @{
-                                    @"appid": @"T6DABF79D-CE15-4A47-A201-4E7DFE0F7EF0",
+                                    @"appid": @"TA7708348-2DBB-4C4E-9762-25367C7DD648",
                                     @"appversion": @"1.0",
                                     @"appname": @"SDK Demo",
                                     @"sfcode": @"uat"
