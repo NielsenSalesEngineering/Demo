@@ -16,6 +16,6 @@
 
 @property (nonatomic) AVPlayer *player;
 @property (nonatomic) AVPlayerItem *playerItem;
-@property (nonatomic, weak) IBOutlet PlayerView *playerView;
+@property (nonatomic, weak) PlayerView *playerView;
 @end
 
